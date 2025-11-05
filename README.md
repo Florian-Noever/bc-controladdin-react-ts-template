@@ -1,5 +1,5 @@
-# ReactBC
-ReactBC is a React template to be integrated in Business Central as a ControlAddIn.
+# ReactTS BC
+ReactTS BC is a React Typescript template to be integrated in Business Central as a ControlAddIn.
 The bundled build result is the javascript source that can be used by BC.
 
 ## How to use the template
@@ -23,7 +23,7 @@ The template supports making functions public to be callable from the BC Control
     ```
 4. In the ControlAddIn of your BC Project, define the Function *(Note that first letter is capital)*:
     ```c#
-    controladdin "PTE ReactBC"
+    controladdin "PTE ReactTSBC"
     {
         Scripts = './addins/react-bc.bundle.js';
 
@@ -36,7 +36,7 @@ The template supports making functions public to be callable from the BC Control
 The template supports calling Events that are defined in the ControlAddIn file in the BC Project. For this you need to follow these steps:
 1. Add the event you want to the ControlAddIn in your BC Project:
     ```c#
-    controladdin "PTE ReactBC"
+    controladdin "PTE ReactTSBC"
     {
         Scripts = './addins/react-bc.bundle.js';
 
