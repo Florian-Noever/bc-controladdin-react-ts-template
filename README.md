@@ -10,40 +10,39 @@ The bundled build result is the javascript source that can be used by BC.
 
 ## How to Call Functions from AL code
 The template supports making functions public to be callable from the BC ControlAddIn. For this you need to follow these steps:
-1. Import ALHelper class `import ALHelper from '@floriannoever/bc-controladdin-helper';`
-2. Have a function that you want to make accessible for AL Code:
+1. Have a function that you want to make accessible for AL Code:
     ```javascript
     function someGlobalFunction() {
         window.alert('Hello from the control add-in!');
     }
     ```
-3. Make that function accessible using the `ALHelper` class:
+2. Make that function accessible using the `ALHelper` class:
     ```javascript
     ALHelper.makeFunctionAccessible(someGlobalFunction);
     ```
-4. In the ControlAddIn of your BC Project, define the Function *(Note that first letter is capital)*:
+3. In the ControlAddIn of your BC Project, define the Function *(Note that first letter is capital)*:
     ```c#
-    controladdin "PTE ReactTSBC"
+    controladdin "PTE MyControlAddIn"
     {
-        Scripts = './addins/react-bc.bundle.js';
+        Scripts = './addins/myproject.js';
 
         procedure SomeGlobalFunction();
     }
     ```
-5. Call the procedure like you would normally do using the ControlAddIn
+4. Call the procedure like you would normally do using the ControlAddIn
 
 ## How to call an AL Event from React
 The template supports calling Events that are defined in the ControlAddIn file in the BC Project. For this you need to follow these steps:
 1. Add the event you want to the ControlAddIn in your BC Project:
     ```c#
-    controladdin "PTE ReactTSBC"
+    controladdin "PTE MyControlAddIn"
     {
-        Scripts = './addins/react-bc.bundle.js';
+        Scripts = './addins/myproject.js';
 
         event OnControlReady(Message: Text; CurrDateTime: Text);
     }
     ```
-2. Invoke the event in the React Project:
+2. Invoke the event in your Project:
     ```javascript
     const datetime = new Date(Date.now());
     ALHelper.invokeEvent('OnControlReady', 'Control Ready Event. Time: ', datetime.toLocaleTimeString());
