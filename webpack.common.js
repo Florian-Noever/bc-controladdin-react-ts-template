@@ -3,13 +3,19 @@ import { fileURLToPath } from 'node:url';
 import pkg from './package.json' with { type: 'json' };
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
+const __libname = pkg.name.replace(/-/g, '_');
 
 export default {
+    target: 'web',
     entry: './src/index.tsx',
 
     output: {
         path: resolve(__dirname, 'dist'),
         filename: `${pkg.name}.bundle.js`,
+        library: {
+            name: __libname,
+            type: 'window',
+        },
         clean: true,
     },
 
@@ -18,15 +24,14 @@ export default {
             {
                 test: /\.(ts|tsx)$/,
                 exclude: /node_modules/,
-                // use: { loader: 'ts-loader', options: { transpileOnly: true } },
                 use: [
                     {
-                        loader: "babel-loader",
+                        loader: 'babel-loader',
                         options: {
                             presets: [
-                                "@babel/preset-env",
-                                "@babel/preset-react",
-                                "@babel/preset-typescript",
+                                '@babel/preset-env',
+                                '@babel/preset-react',
+                                '@babel/preset-typescript',
                             ],
                         },
                     },
@@ -36,15 +41,19 @@ export default {
             { test: /\.svg$/, type: 'asset/inline' },
             { test: /\.(png|jpe?g|gif)$/i, type: 'asset/inline' },
             { test: /\.(woff2?|eot|ttf|otf)$/i, type: 'asset/inline' },
-            { test: /\.html$/, use: ['html-loader'] },
         ],
     },
+
     resolve: {
         extensions: ['.tsx', '.ts', '.js', '.jsx'],
     },
+
     performance: {
         hints: false,
-        maxAssetSize: 400000,
-        maxEntrypointSize: 400000,
+    },
+
+    optimization: {
+        splitChunks: false,
+        runtimeChunk: false,
     },
 };

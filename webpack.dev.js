@@ -13,9 +13,7 @@ export default merge(common, {
     plugins: [
         new HtmlWebpackPlugin({
             template: './public/index.html',
-            filename: 'index.html',
             inject: 'body',
-            publicPath: '/',
             favicon: resolve(__dirname, 'public/favicon.ico'),
         }),
     ],
