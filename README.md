@@ -1,5 +1,5 @@
-# ReactTS BC
-ReactTS BC is a React Typescript template to be integrated in Business Central as a ControlAddIn.
+# BC ControlAddIn React Typescript Template
+This is a React Typescript template to be integrated in Business Central as a ControlAddIn.
 The bundled build result is the javascript source that can be used by BC.
 
 ## How to use the template
@@ -10,7 +10,7 @@ The bundled build result is the javascript source that can be used by BC.
 
 ## How to Call Functions from AL code
 The template supports making functions public to be callable from the BC ControlAddIn. For this you need to follow these steps:
-1. Import ALHelper class `import ALHelper from 'utils/ALHelper';`
+1. Import ALHelper class `import ALHelper from '@floriannoever/bc-controladdin-helper';`
 2. Have a function that you want to make accessible for AL Code:
     ```javascript
     function someGlobalFunction() {
