@@ -1,18 +1,18 @@
 {
   "name": "react-ts-bc",
   "version": "0.1.0",
-  "description": "A template for React to use in Business Central AL",
+  "description": "A React Typescript template for use as a ControlAddIn in Business Central",
   "license": "MIT",
   "author": "Florian Noever",
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Florian-Noever/react-ts-bc"
+    "url": "https://github.com/Florian-Noever/bc-controladdin-react-ts-template"
   },
   "bugs": {
-    "url": "https://github.com/Florian-Noever/react-ts-bc/issues"
+    "url": "https://github.com/Florian-Noever/bc-controladdin-react-ts-template/issues"
   },
-  "homepage": "https://github.com/Florian-Noever/react-ts-bc",
+  "homepage": "https://github.com/Florian-Noever/bc-controladdin-react-ts-template",
   "keywords": [
     "react",
     "template",
